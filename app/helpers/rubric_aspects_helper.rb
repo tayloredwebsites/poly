@@ -1,0 +1,2 @@
+module RubricAspectsHelper
+end

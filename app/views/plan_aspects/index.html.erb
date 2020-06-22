@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Plan Aspects</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @plan_aspects.each do |plan_aspect| %>
+      <tr>
+        <td><%= plan_aspect.name %></td>
+        <td><%= link_to 'Show', plan_aspect %></td>
+        <td><%= link_to 'Edit', edit_plan_aspect_path(plan_aspect) %></td>
+        <td><%= link_to 'Destroy', plan_aspect, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Plan Aspect', new_plan_aspect_path %>

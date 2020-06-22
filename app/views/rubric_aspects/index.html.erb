@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Rubric Aspects</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rubric_aspects.each do |rubric_aspect| %>
+      <tr>
+        <td><%= rubric_aspect.name %></td>
+        <td><%= link_to 'Show', rubric_aspect %></td>
+        <td><%= link_to 'Edit', edit_rubric_aspect_path(rubric_aspect) %></td>
+        <td><%= link_to 'Destroy', rubric_aspect, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Rubric Aspect', new_rubric_aspect_path %>
