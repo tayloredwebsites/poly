@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_11_212023) do
+ActiveRecord::Schema.define(version: 2020_06_29_215207) do
 
   create_table "plan_aspects", force: :cascade do |t|
     t.string "name"
@@ -38,6 +38,36 @@ ActiveRecord::Schema.define(version: 2020_03_11_212023) do
     t.string "rubricable_type"
     t.integer "rubricable_id"
     t.index ["rubricable_type", "rubricable_id"], name: "index_rubrics_on_rubricable_type_and_rubricable_id"
+  end
+
+  create_table "user_joins", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "user_joinable_type"
+    t.integer "user_joinable_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_user_joins_on_user_id"
+    t.index ["user_joinable_type", "user_joinable_id"], name: "user_joinable"
+  end
+
+  create_table "user_rubrics", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "rubric_id", null: false
+    t.string "user_rubricable_type"
+    t.integer "user_rubricable_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["rubric_id"], name: "index_user_rubrics_on_rubric_id"
+    t.index ["user_id"], name: "index_user_rubrics_on_user_id"
+    t.index ["user_rubricable_type", "user_rubricable_id"], name: "user_rubricable"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "email"
+    t.string "password"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end

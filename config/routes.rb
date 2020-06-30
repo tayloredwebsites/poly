@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users
   resources :rubric_aspects
   resources :rubrics
   resources :plan_aspects
